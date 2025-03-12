@@ -1,0 +1,83 @@
+.loginArea {
+  max-width: 400px;
+  margin: 50px auto; // 중앙 정렬
+  padding: 30px;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// 로그인 폼
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &:focus {
+      border-color: #b88a4a;
+      box-shadow: 0 0 8px rgba(184, 138, 74, 0.5);
+      outline: none;
+    }
+  }
+}
+
+// 로그인 버튼
+.loginForm button {
+  width: 100%;
+  background: #dc3545; // 부트스트랩 danger (빨간색)
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+
+  &:hover {
+    background: #c82333;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// 회원가입 링크
+.link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
+}

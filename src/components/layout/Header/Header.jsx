@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import styles from "./Header.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-regular-svg-icons";
@@ -7,6 +7,21 @@ import {faSearch} from "@fortawesome/free-solid-svg-icons";
 
 
 const Header = () => {
+
+const navigate = useNavigate();
+
+    // 상품 검색 후 Enter를 누르면 URL 변경
+    const search = (event) => {
+        if (event.key === "Enter") {
+            const query = event.target.value.trim();
+
+            if (query) {
+                navigate(`/search?query=${encodeURIComponent(query)}`); // ✅ URL 변경
+            }
+        }
+    };
+
+
     return (
         <>
             <div className={styles.loginButton}>
@@ -30,7 +45,7 @@ const Header = () => {
             </nav>
             <div className={styles.searchArea}>
                 <FontAwesomeIcon icon={faSearch} />
-                <input  type="text" placeholder="상품을 검색하세요."/>
+                <input  type="text" onKeyDown={search} placeholder="상품을 검색하세요."/>
             </div>
         </>
     );
