@@ -16,11 +16,10 @@ const navigate = useNavigate();
             const query = event.target.value.trim();
 
             if (query) {
-                navigate(`/search?query=${encodeURIComponent(query)}`); // ✅ URL 변경
+                navigate(`/search?query=${encodeURIComponent(query)}`); //URL변경
             }
         }
     };
-
 
     return (
         <>
@@ -45,7 +44,7 @@ const navigate = useNavigate();
             </nav>
             <div className={styles.searchArea}>
                 <FontAwesomeIcon icon={faSearch} />
-                <input  type="text" onKeyDown={search} placeholder="상품을 검색하세요."/>
+                <input  type="text" onKeyDown={search}  placeholder="상품을 검색하세요."/>
             </div>
         </>
     );

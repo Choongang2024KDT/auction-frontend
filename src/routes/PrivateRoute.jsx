@@ -1,10 +1,10 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-const PrivateRoute = () => {
-    const isAuthenticated = false; // TODO: 실제 인증 여부 확인 (로컬 스토리지 ?)
+const PrivateRoute = ({ children }) => {
+    const isAuthenticated = false; // 실제 로그인 여부 확인
 
-    return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
+    return isAuthenticated ? children : <Navigate to="/login" replace />;
 };
 
 export default PrivateRoute;

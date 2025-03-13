@@ -1,50 +1,30 @@
-import React, {useState} from "react";
-import {Button, Container, Form} from "react-bootstrap";
-import {Link} from "react-router-dom";
-import styles from "./LoginForm.module.scss";
+import { Form, Link } from 'react-router-dom';
+import styles from './LoginForm.module.scss';
 
-const LoginForm = () => {
+const LoginForm = () => (
+    <div className={styles.container}>
+        <Form method="post" className={styles.form}>
+            <h1 className={styles.title}> 로그인 </h1>
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+            <div className={styles.inputGroup}>
+                <label htmlFor="email" autofocus >Email</label>
+                <input id="email" type="email" name="email" required />
+            </div>
 
-    const handleLogin = (event) => {
-        event.preventDefault();
-        // 로그인 처리 로직 추가 예정
-    };
+            <div className={styles.inputGroup}>
+                <label htmlFor="password">Password</label>
+                <input id="password" type="password" name="password" required />
+            </div>
 
-    return (
-        <Container className={styles.loginArea}>
-            <Form onSubmit={handleLogin}>
-                <Form.Group>
-                    {/*htmlFor="email" 추후 넣어야함 !!*/}
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </Form.Group>
+            <div className={styles.actions}>
+                <button type="submit" className={styles.loginButton}>Login</button>
+            </div>
 
-                <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </Form.Group>
-
-                <Button type="submit">Login</Button>
-
-                <div>
-                    아직 계정이 없으세요? <Link to="/sign-up">회원가입 하기</Link>
-                </div>
-            </Form>
-        </Container>
-    );
-};
+            <div className={styles.registerText}>
+                아직 계정이 없으신가요? <Link to="/signup">회원가입 하러가기</Link>
+            </div>
+        </Form>
+    </div>
+);
 
 export default LoginForm;
